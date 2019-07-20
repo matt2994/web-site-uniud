@@ -1,7 +1,7 @@
 <!--Set navbar-->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <!-- Logo -->
-    <a class="navbar-brand" href="index.php">
+    <!-- Logo --> 
+    <a class="navbar-brand navbar-right" href="index.php">
         <img id="logo" src="images/logo.png" alt="logo">
     </a>
     <!-- Left links -->
@@ -39,7 +39,7 @@
                 </li>
         <?php } else { ?>
                 <li class="nav-item"> 
-                    <a id="sign-in" class="nav-link" href="#">Accedi</a>
+                    <a id="sign-in" class="nav-link" href="#">Registrati</a>
                 </li>
                 <li class="nav-item"> 
                     <a id="login" class="nav-link" href="login.php">Login</a>
