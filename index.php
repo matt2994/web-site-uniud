@@ -23,62 +23,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#">
-            <img id="logo" src="images/logo.png" alt="logo">
-        </a>
-
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Progetto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Tabella</a>
-            </li>
-            <li class="nav-item"> 
-                <a id="login" class="nav-link" href="login.php">Login</a>
-            </li>
-            
-            <!-- Dropdown 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Dropdown link</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Link 1</a>
-                <a class="dropdown-item" href="#">Link 2</a>
-                <a class="dropdown-item" href="#">Link 3</a>
-            </div>
-            </li> -->
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                    <!--Print user name -->
-                    <?php
-                        session_start();
-                        if($_SESSION['username']){
-                            require_once('config/mysql.php');
-                            $query='SELECT * FROM user_data';
-                            $result = $conn->query($query);
-                            while ($data = $result->fetch_array()) {
-                                // var_dump($data);
-                                echo $data['User'];
-                            }
-                        }   else { 
-                            echo "";
-                        }
-                    ?>
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Informazioni personali</a>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </li>
-        </ul>
-        </nav>
-
+        <!--Navbar show -->
+        <div id="nav-placeholder">
+        </div>
+        <script>
+            $(function(){
+            $("#nav-placeholder").load("navbar.php");
+            });
+        </script>
+        <!-- End Navbar -->
         <?php
         session_start();
         if(!$_SESSION['username']) {
