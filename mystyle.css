@@ -1,0 +1,14 @@
+#logo {
+  width: 10%;
+  height: auto;
+  border-radius: 200px;
+  background-color: white;
+}
+
+.ml-auto .dropdown-menu {
+  left: auto !important;
+  right: 0px;
+}
+
+
+
