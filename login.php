@@ -33,22 +33,31 @@
         </script>
         <!-- End Navbar -->
         <?php
-        session_start();
-        if(isset($_POST["username"]) && isset($_POST["password"])) {
-        require_once('config/mysql.php');
-        $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["username"]."' AND password='".$_POST["password"]."';");
-        if ($result->num_rows) {
-            $_SESSION["username"] = $_POST["username"];
-            header("Location: index.php");
-        } else {
-            echo "USER E PASSWORD ERRATA";
-        }
-        }
+            session_start();
+            if(isset($_POST["username"]) && isset($_POST["password"])) {
+                require_once('config/mysql.php');
+                $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["username"]."' AND password='".$_POST["password"]."';");
+                if ($result->num_rows) {
+                    $_SESSION["username"] = $_POST["username"];
+                    header("Location: index.php");
+                } else { ?>
+                    <script>
+                        $(function(){
+                        $("#login-error").append("<p>Username o password errato</p>");
+                        });
+                    </script>
+                <?php
+                }
+            }   
         ?>
         <div id="container-login" class="container">
             <div class="col-sm">
                 <h2>Inserire i dati:</h2>
             </div>
+            <!-- Error message if data is wrong -->
+            <div id="login-error" class="col-sm">
+            </div>
+            <!-- ******** -->
             <form id="form-login" class="form-horizontal was-validated" action="login.php" method="POST">
                 <div class="form-group">
                     <label class="control-label col-sm" for="uname">Username</label>
@@ -64,7 +73,7 @@
                         <!-- 
                         <input type="password" class="form-control" id="pwd" placeholder="Inserire password" name="pswd" required>
                          -->
-                         <input type="text" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
+                        <input type="text" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>

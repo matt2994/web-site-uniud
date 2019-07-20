@@ -1,9 +1,11 @@
+/* Navbar logo position and dimension*/
 #logo {
   width: 60px;
   height: auto;
   border-radius: 200px;
   background-color: white;
 }
+/* nav bar setup */
 .ml-auto .dropdown-menu {
   left: auto !important;
   right: 0px;
@@ -14,6 +16,8 @@
   left: 0px;
 }
 
+/*Login form */
+
 #container-login{
   align-content: center;
   align-items: center;
@@ -22,4 +26,7 @@
   float: none;
 }
 
+#login-error p {
+  color: #b22222;
+}
 
