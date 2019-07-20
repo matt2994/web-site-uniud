@@ -1,14 +1,25 @@
 #logo {
-  width: 10%;
+  width: 60px;
   height: auto;
   border-radius: 200px;
   background-color: white;
 }
-
 .ml-auto .dropdown-menu {
   left: auto !important;
   right: 0px;
 }
 
+.mr-auto{
+  right: auto !important;
+  left: 0px;
+}
+
+#container-login{
+  align-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 7% auto;
+  float: none;
+}
 
 
