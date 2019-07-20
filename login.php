@@ -40,7 +40,9 @@
                 if ($result->num_rows) {
                     $_SESSION["username"] = $_POST["username"];
                     header("Location: index.php");
-                } else { ?>
+                } else { 
+                //if there are't that data in DB show an error message
+                ?>
                     <script>
                         $(function(){
                         $("#login-error").append("<p>Username o password errato</p>");

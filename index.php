@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Quote request</title>
-        <meta name="description" content="Make a request to a server for quotes"/>
+        <title>Final project</title>
+        <meta name="description" content="Waeb application final project"/>
         <meta name="author" content="Michele Gaiarin"/>
         <link rel="icon" href="images/icon.png"/>
         <link rel="stylesheet" type="text/css" href="mystyle.css"/>
@@ -28,7 +28,7 @@
         </div>
         <script>
             $(function(){
-            $("#nav-placeholder").load("navbar.php");
+                $("#nav-placeholder").load("navbar.php");
             });
         </script>
         <!-- End Navbar -->
@@ -36,6 +36,7 @@
         session_start();
         if(!$_SESSION['username']) {
             //header('Location: login.php');
+            //echo $data['username'];
         }
         ?>
     </body>
