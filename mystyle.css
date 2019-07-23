@@ -17,16 +17,29 @@
 }
 
 /*Login form */
+.form-container input[type=text], input[type=password], input[type=date], input[type=email]{
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-#container-login{
+.form-container input[type=submit]{
+  width: 10%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-container{
   align-content: center;
   align-items: center;
+  text-align: center;
   width: 40%;
   margin: 7% auto;
   float: none;
+  
 }
 
-#login-error p {
+.error-warning p{
   color: #b22222;
 }
 

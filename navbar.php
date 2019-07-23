@@ -18,6 +18,7 @@
         <!--Check login and set links -->
         <?php
             session_start();
+            //Check login. If is done show username in navbar
             if($_SESSION['username']){
                 //require_once('config/mysql.php');
                 //$query='SELECT * FROM user_data';
@@ -36,6 +37,7 @@
                 </div>
                 </li>
         <?php } else { ?>
+                <!-- If the the login is't done show signin and login link -->
                 <li class="nav-item"> 
                     <a id="sign-in" class="nav-link" href="signin.php">Registrati</a>
                 </li>

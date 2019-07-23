@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -7,12 +6,12 @@
         <meta name="author" content="Michele Gaiarin"/>
         <link rel="icon" href="images/icon.png"/>
         <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+        <script type="text/javascript" src="script.js"></script>
         <script
         src="https://code.jquery.com/jquery-3.4.0.js"
         integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
         crossorigin="anonymous">
         </script>
-        <script type="text/javascript" src="script.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- jQuery library -->
@@ -45,19 +44,19 @@
                 ?>
                     <script>
                         $(function(){
-                        $("#login-error").append("<p>Username o password errato</p>");
+                            $("#login-error").append("<p>Username o password errato</p>");
                         });
                     </script>
                 <?php
                 }
             }   
         ?>
-        <div id="container-login" class="container">
+        <div id="container-login" class="form-container container">
             <div class="col-sm">
                 <h2>Inserire i dati:</h2>
             </div>
             <!-- Error message if data is wrong -->
-            <div id="login-error" class="col-sm">
+            <div id="login-error" class="error-warning col-sm">
             </div>
             <!-- ******** -->
             <form id="form-login" class="form-horizontal was-validated" action="login.php" method="POST">
@@ -81,7 +80,7 @@
                     </div>
                 </div>
                 <div class="form-group">        
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-2 col-sm">
                         <input type="submit" class="btn btn-primary" name="button" value="Accedi">
                     </div>
                 </div>
