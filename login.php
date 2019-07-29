@@ -74,7 +74,7 @@
                         <!-- 
                         <input type="password" class="form-control" id="pwd" placeholder="Inserire password" name="pswd" required>
                          -->
-                        <input type="text" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
+                        <input type="password" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
