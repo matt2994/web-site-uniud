@@ -35,7 +35,8 @@
             session_start();
             if(isset($_POST["username"]) && isset($_POST["password"])) {
                 require_once('config/mysql.php');
-                $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["username"]."' AND password='".$_POST["password"]."';");
+                $pass = md5($POST["password"]);
+                $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["username"]."' AND password='".$pass."';");
                 if ($result->num_rows) {
                     $_SESSION["username"] = $_POST["username"];
                     header("Location: index.php");

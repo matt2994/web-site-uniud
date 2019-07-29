@@ -38,7 +38,7 @@
                 $result = $conn->query("SELECT * FROM user_data WHERE email='".$_POST["email"]."';");
                 //if there is already that username show error message otherside save data
                 if (!$result->num_rows >= 1) {
-                    $result = $conn->query("SELECT * FROM user_data WHERE email='".$_POST["user"]."';");
+                    $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["user"]."';");
                     //if there is already that username show error message otherside save data
                     if (!$result->num_rows >= 1) {
                         require_once("services/insert.php");
@@ -62,6 +62,14 @@
                     </script>
                 <?php 
                 }   
+            } else {
+                ?>
+                    <script>
+                        $(function(){
+                            $("#signin-error").append("<p>Inserire tutti i campi obbligatori</p>");
+                        });
+                    </script>
+                <?php
             }
         ?>
 
