@@ -33,25 +33,26 @@
         <!-- End Navbar -->
         <?php
             session_start();
-            if(isset($_POST["username"]) && isset($_POST["password"])) {
+            if(isset($_POST["username"]) && isset($_POST["password"])) {             
                 require_once('config/mysql.php');
-                $result = $conn->query("SELECT * FROM user_data WHERE user='".$_POST["username"]."';");
+                $result = $conn->query("SELECT * FROM user_data WHERE email='".$_POST["email"]."';");
                 //if there is already that username show error message otherside save data
                 if (!$result->num_rows >= 1) {
-                    require_once('services/insert.php');
-                    //call service insert.php (To Do)
+                    require_once("services/insert.php");
+                    header("Location: index.php");
                 } else { 
                 //if there is already the user return error
                 ?>
                     <script>
                         $(function(){
-                            $("#signin-error").append("<p>Username già presente</p>");
+                            $("#signin-error").append("<p>Email già presente</p>");
                         });
                     </script>
                 <?php
-                }
-            }   
+                }    
+            }
         ?>
+
         <div id="container-signin" class="form-container container">
             <div class="col-sm">
                 <h2>Registrazione</h2>
@@ -70,7 +71,7 @@
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div>
-                <!-- Campo cognome --
+                <!-- Campo cognome -->
                 <div class="form-group">
                     <label class="control-label col-sm">Cognome</label>
                     <div class="col-sm">
@@ -79,22 +80,22 @@
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div>
-                <-- Campo data di nascita --
+                <!-- Campo data di nascita -->
                 <div class="form-group">
                     <label class="control-label col-sm">Data di nascita</label>
                     <div class="col-sm">
-                        <input type="date" class="form-control" id="dateofbirth">
+                        <input type="date" class="form-control" id="dateofbirth" name="date">
                     </div>
                 </div>
-                <-- Campo email --
+                <!-- Campo email -->
                 <div class="form-group">
                     <label class="control-label col-sm">Email</label>
                     <div class="col-sm">
-                        <input type="email" class="form-control" id="email" value="" required>
+                        <input type="email" class="form-control" id="email" name="email" value="" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
-                </div> -->
+                </div> 
                 <!-- user -->
                 <div class="form-group">
                     <label class="control-label col-sm" for="uname">Username</label>
@@ -108,9 +109,6 @@
                 <div class="form-group">
                     <label class="control-label col-sm" for="pwd">Password</label>
                     <div class="col-sm">
-                        <!-- 
-                        <input type="password" class="form-control" id="pwd" placeholder="Inserire password" name="pswd" required>
-                         -->
                         <input type="password" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
