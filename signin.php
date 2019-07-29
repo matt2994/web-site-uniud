@@ -27,29 +27,41 @@
         </div>
         <script>
             $(function(){
-            $("#nav-placeholder").load("navbar.php");
+                $("#nav-placeholder").load("navbar.php");
             });
         </script>
         <!-- End Navbar -->
         <?php
             session_start();
-            if(isset($_POST["username"]) && isset($_POST["password"])) {             
+            if(isset($_POST["username"], $_POST["password"], $_POST["name"], $_POST["surname"], $_POST["email"]) ) {             
                 require_once('config/mysql.php');
                 $result = $conn->query("SELECT * FROM user_data WHERE email='".$_POST["email"]."';");
                 //if there is already that username show error message otherside save data
                 if (!$result->num_rows >= 1) {
-                    require_once("services/insert.php");
-                    header("Location: index.php");
-                } else { 
-                //if there is already the user return error
+                    $result = $conn->query("SELECT * FROM user_data WHERE email='".$_POST["user"]."';");
+                    //if there is already that username show error message otherside save data
+                    if (!$result->num_rows >= 1) {
+                        require_once("services/insert.php");
+                        header("Location: index.php");
+                    } else {
+                        ?>
+                            <script>
+                                $(function(){
+                                    $("#signin-error").append("<p>Username già presente</p>");
+                                });
+                            </script>
+                        <?php
+                    }
+            } else { 
+                //if there is already the email return error
                 ?>
                     <script>
                         $(function(){
                             $("#signin-error").append("<p>Email già presente</p>");
                         });
                     </script>
-                <?php
-                }    
+                <?php 
+                }   
             }
         ?>
 
