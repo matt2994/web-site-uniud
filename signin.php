@@ -6,12 +6,12 @@
         <meta name="author" content="Michele Gaiarin"/>
         <link rel="icon" href="images/icon.png"/>
         <link rel="stylesheet" type="text/css" href="mystyle.css"/>
-        <script type="text/javascript" src="script.js"></script>
         <script
-        src="https://code.jquery.com/jquery-3.4.0.js"
-        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-        crossorigin="anonymous">
+            src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous">
         </script>
+        <script type="text/javascript" src="script.js"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- jQuery library -->
@@ -81,13 +81,14 @@
             <div id="signin-error" class="error-warning col-sm">
             </div>
             <!-- ******** -->
-            <form id="form-signin" class="form-horizontal was-validated" action="signin.php" method="POST">
+            <form id="form-signin" class="form-horizontal was-validated" action="signin.php" method="POST" 
+                oninput='confirm_password.setCustomValidity(confirm_password.value != password.value ? "La password non combacia" : "")'>
                 <!-- Campo nome -->
                 <div class="form-group">
                     <label class="control-label col-sm">Nome</label>
                     <div class="col-sm">
                         <input type="text" class="form-control" id="name" placeholder="Inserire nome" name="name" value="" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <div class="valid-feedback">Valida.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div>
@@ -96,7 +97,7 @@
                     <label class="control-label col-sm">Cognome</label>
                     <div class="col-sm">
                         <input type="text" class="form-control" id="surname" placeholder="Inserire cognome" name="surname" value="" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <div class="valid-feedback">Valida.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                     <label class="control-label col-sm">Email</label>
                     <div class="col-sm">
                         <input type="email" class="form-control" id="email" name="email" value="" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <div class="valid-feedback">Valida.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div> 
@@ -121,7 +122,7 @@
                     <label class="control-label col-sm" for="uname">Username</label>
                     <div class="col-sm">
                         <input type="text" class="form-control" id="uname" placeholder="Inserire username" name="username" value="" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <div class="valid-feedback">Valida.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
                     </div>
                 </div>
@@ -130,8 +131,17 @@
                     <label class="control-label col-sm" for="pwd">Password</label>
                     <div class="col-sm">
                         <input type="password" class="form-control" id="psw" placeholder="Inserire password" name="password" value="" required>
-                        <div class="valid-feedback">Valid.</div>
+                        <div class="valid-feedback">Valida.</div>
                         <div class="invalid-feedback">Per favore compila il campo.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm" for="pwd">Verifica password</label>
+                    <div class="col-sm">
+                        <input type="password" class="form-control" id="psw-c" placeholder="Inserire password" name="confirm_password" value="">
+                        <div class="valid-feedback">Valida.</div>
+                        <div class="invalid-feedback">La password non corrisponde.</div>
+                        <div id="message"></div>
                     </div>
                 </div>
                 <div class="form-group">        
