@@ -1,7 +1,7 @@
 /* Navbar logo position and dimension*/
 #logo {
   width: 60px;
-  height: 60px;
+  height: auto;
   border-radius: 200px;
   background-color: white;
 }
@@ -42,4 +42,3 @@
 .error-warning p{
   color: #b22222;
 }
-
