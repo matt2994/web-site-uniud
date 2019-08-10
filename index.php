@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Final project</title>
-        <meta name="description" content="Waeb application final project"/>
+        <meta name="description" content="Web application final project"/>
         <meta name="author" content="Michele Gaiarin"/>
         <link rel="icon" href="images/icon.png"/>
         <link rel="stylesheet" type="text/css" href="mystyle.css"/>
@@ -27,7 +27,7 @@
         </div>
         <script>
             $(function(){
-                $("#nav-placeholder").load("navbar.php");
+                $("#nav-placeholder").load("/includes/navbar.php");
             });
         </script>
         <!-- End Navbar -->
